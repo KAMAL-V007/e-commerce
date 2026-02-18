@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRIND | Better Coffee</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<section id="view-home" class="page-view active">
+        <header class="hero">
+            <div class="hero-content">
+                <h1>This is <br> better coffee.</h1>
+                <p class="subtitle">Get started with 30 home-compostable pods.</p>
+                <button class="btn-black btn-large" onclick="router('shop')">Shop now</button> </div>
+            <div class="hero-image">
+                 <div class="product-scene">
+                    <div class="tin-can"><div class="tin-label">GRIND</div></div>
+                    <div class="pod-box box-1"><span>Long Blend</span></div>
+                    <div class="pod-box box-2"><span>House Blend</span></div>
+                </div>
+            </div>
+        </header>
+        <section class="press-logos">
+            <div class="logo-item">THE INDEPENDENT</div>
+            <div class="logo-item">GQ</div>
+            <div class="logo-item">VOGUE</div>
+        </section>
+    </section>
+
+    <section id="view-shop" class="page-view hidden">
+        <div class="shop-header">
+            <h2>All Coffee</h2>
+            <p>Sustainably sourced, roasted in London.</p>
+        </div>
+        <div class="product-grid" id="product-grid">
+            </div>
+    </section>
+
+    <div class="cart-overlay hidden" id="cart-overlay">
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h3>Your Bag <span id="cart-count-header">(0)</span></h3>
+                <span class="close-cart" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+            <div class="cart-items" id="cart-items-container">
+                <p class="empty-msg">Your bag is empty.</p>
+            </div>
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total</span>
+                    <span id="cart-total">£0.00</span>
+                </div>
+                <button class="btn-black full-width">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden">Added to bag!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
