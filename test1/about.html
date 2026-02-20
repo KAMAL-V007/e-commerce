@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Brew & Bloom</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Brew & Bloom</a>
+        <div class="menu-toggle"><span>&#9776;</span></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="auth.html" id="auth-link">Login</a></li>
+        </ul>
+        <div class="nav-icons">
+          <a href="cart.html" class="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" style="height: 50vh; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1442512595331-e89e7385a861?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80');">
+    <div class="hero-content">
+      <h1>Our Story</h1>
+      <p>From bean to cup, we are dedicated to quality.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container about-content">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Barista pouring coffee" style="border-radius: 8px; box-shadow: var(--shadow);">
+      </div>
+      <div class="about-text">
+        <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1.5rem;">Rooted in Passion</h2>
+        <p>Founded in 2010, Brew & Bloom began with a simple mission: to bring the world's finest coffees to your kitchen table. We believe that great coffee is more than just a caffeine kick—it's a ritual, a moment of pause, and a sensory experience.</p>
+        <p>Our beans are ethically sourced from sustainable farms across the globe. We build direct relationships with farmers to ensure fair wages and environmentally friendly practices. Every batch is roasted in small quantities to highlight the unique characteristics of its origin.</p>
+        <p>Whether you prefer a bright, fruity pour-over or a bold, chocolatey espresso, we have something special for you. Join us on this journey of flavor and discovery.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section style="background-color: var(--secondary-color); color: white; text-align: center;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
+        <div>
+          <h3 style="font-size: 3rem; margin-bottom: 0.5rem; color: var(--white);">15+</h3>
+          <p>Years of Roasting</p>
+        </div>
+        <div>
+          <h3 style="font-size: 3rem; margin-bottom: 0.5rem; color: var(--white);">50+</h3>
+          <p>Partner Farms</p>
+        </div>
+        <div>
+          <h3 style="font-size: 3rem; margin-bottom: 0.5rem; color: var(--white);">10k+</h3>
+          <p>Happy Customers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Brew & Bloom</h3>
+          <p>Crafting moments of joy, one cup at a time.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="shop.html">All Coffee</a></li>
+            <li><a href="shop.html">Subscriptions</a></li>
+            <li><a href="shop.html">Equipment</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Stay Connected</h3>
+          <p>Subscribe for updates and offers.</p>
+          <input type="email" placeholder="Email Address" style="padding: 0.5rem; width: 100%; margin-top: 0.5rem;">
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2026 Brew & Bloom. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

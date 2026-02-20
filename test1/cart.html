@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart | Brew & Bloom</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Brew & Bloom</a>
+        <div class="menu-toggle"><span>&#9776;</span></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="auth.html" id="auth-link">Login</a></li>
+        </ul>
+        <div class="nav-icons">
+          <a href="cart.html" class="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h1 class="section-title">Your Cart</h1>
+      
+      <div class="cart-container" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <div style="flex: 2; min-width: 300px;">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Cart items injected here -->
+            </tbody>
+          </table>
+        </div>
+        
+        <div style="flex: 1; min-width: 300px;">
+          <div class="cart-summary">
+            <!-- Summary injected here -->
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Brew & Bloom</h3>
+          <p>Crafting moments of joy, one cup at a time.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="shop.html">All Coffee</a></li>
+            <li><a href="shop.html">Subscriptions</a></li>
+            <li><a href="shop.html">Equipment</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Stay Connected</h3>
+          <p>Subscribe for updates and offers.</p>
+          <input type="email" placeholder="Email Address" style="padding: 0.5rem; width: 100%; margin-top: 0.5rem;">
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2026 Brew & Bloom. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
