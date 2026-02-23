@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart | Brew & Bloom</title>
+  <title>Checkout | Brew & Bloom</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -33,33 +33,55 @@
 
   <section>
     <div class="container">
-      <h1 class="section-title">Your Cart</h1>
+      <h1 class="section-title">Checkout</h1>
       
-      <div class="cart-container" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        
+        <!-- Checkout Form -->
         <div style="flex: 2; min-width: 300px;">
-          <table id="cart-table" class="cart-table">
-            <thead>
-              <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Cart items injected here -->
-            </tbody>
-          </table>
+          <form id="checkout-form" class="auth-container" style="margin: 0; max-width: none; text-align: left;">
+            <h3 style="margin-bottom: 1.5rem;">Shipping Information</h3>
+            
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" id="address" class="form-control" required>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="zip">Zip Code</label>
+                <input type="text" id="zip" class="form-control" required>
+              </div>
+            </div>
+
+            <h3 style="margin: 2rem 0 1.5rem;">Payment (Mock)</h3>
+            <div class="form-group">
+              <label for="card">Card Number</label>
+              <input type="text" id="card" class="form-control" placeholder="•••• •••• •••• ••••" required>
+            </div>
+            
+            <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Place Order</button>
+          </form>
         </div>
         
+        <!-- Order Summary -->
         <div style="flex: 1; min-width: 300px;">
-          <div id="cart-summary" class="cart-summary">
+          <div id="checkout-summary" class="cart-summary">
             <!-- Summary injected here -->
+            <p>Loading summary...</p>
           </div>
         </div>
+        
       </div>
-      
     </div>
   </section>
 

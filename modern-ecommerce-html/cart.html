@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | Lumina</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">LUMINA.</a>
+                <input type="checkbox" id="mobile-menu-check">
+                <label for="mobile-menu-check" class="menu-toggle"><span>&#9776;</span></label>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="#" class="search-icon">&#128269;</a>
+                    <a href="cart.html" class="cart-icon active">&#128722;<span class="cart-count">3</span></a>
+                    <a href="#" class="user-icon">&#128100;</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 style="margin: 3rem 0 2rem; text-align: center;">Your Shopping Cart</h1>
+
+        <div style="overflow-x: auto;">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th style="width: 50%;">Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Item 1 -->
+                    <tr>
+                        <td>
+                            <div class="cart-item-info">
+                                <img src="https://placehold.co/100x100/eee/333?text=Item+1" alt="Watch" class="cart-item-img">
+                                <div>
+                                    <h4 style="margin-bottom: 0.2rem;">Minimalist Watch</h4>
+                                    <span style="font-size: 0.85rem; color: #888;">Color: Black</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>$129.00</td>
+                        <td>
+                            <div class="quantity-control" style="margin-bottom: 0;">
+                                <button class="qty-btn" style="width: 25px; height: 25px;">-</button>
+                                <input type="text" value="1" class="qty-input" style="width: 30px; padding: 2px;">
+                                <button class="qty-btn" style="width: 25px; height: 25px;">+</button>
+                            </div>
+                        </td>
+                        <td style="font-weight: 600;">$129.00</td>
+                        <td><a href="#" style="color: red; font-size: 1.2rem;">&times;</a></td>
+                    </tr>
+
+                    <!-- Item 2 -->
+                    <tr>
+                        <td>
+                            <div class="cart-item-info">
+                                <img src="https://placehold.co/100x100/eee/333?text=Item+2" alt="Tote" class="cart-item-img">
+                                <div>
+                                    <h4 style="margin-bottom: 0.2rem;">Leather Tote</h4>
+                                    <span style="font-size: 0.85rem; color: #888;">Color: Brown</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>$185.00</td>
+                        <td>
+                            <div class="quantity-control" style="margin-bottom: 0;">
+                                <button class="qty-btn" style="width: 25px; height: 25px;">-</button>
+                                <input type="text" value="1" class="qty-input" style="width: 30px; padding: 2px;">
+                                <button class="qty-btn" style="width: 25px; height: 25px;">+</button>
+                            </div>
+                        </td>
+                        <td style="font-weight: 600;">$185.00</td>
+                        <td><a href="#" style="color: red; font-size: 1.2rem;">&times;</a></td>
+                    </tr>
+
+                     <!-- Item 3 -->
+                     <tr>
+                        <td>
+                            <div class="cart-item-info">
+                                <img src="https://placehold.co/100x100/eee/333?text=Item+3" alt="Vase" class="cart-item-img">
+                                <div>
+                                    <h4 style="margin-bottom: 0.2rem;">Ceramic Vase</h4>
+                                    <span style="font-size: 0.85rem; color: #888;">Size: Medium</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>$45.00</td>
+                        <td>
+                            <div class="quantity-control" style="margin-bottom: 0;">
+                                <button class="qty-btn" style="width: 25px; height: 25px;">-</button>
+                                <input type="text" value="2" class="qty-input" style="width: 30px; padding: 2px;">
+                                <button class="qty-btn" style="width: 25px; height: 25px;">+</button>
+                            </div>
+                        </td>
+                        <td style="font-weight: 600;">$90.00</td>
+                        <td><a href="#" style="color: red; font-size: 1.2rem;">&times;</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; margin-top: 3rem;">
+            <div class="cart-summary" style="width: 100%; max-width: 400px;">
+                <h3 style="margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid #ddd;">Cart Totals</h3>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>$404.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>Free</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax (Estimate)</span>
+                    <span>$32.32</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span style="color: var(--accent-color);">$436.32</span>
+                </div>
+
+                <a href="checkout.html" class="btn" style="width: 100%; text-align: center; margin-top: 2rem;">Proceed to Checkout</a>
+                <a href="shop.html" style="display: block; text-align: center; margin-top: 1rem; color: #666; font-size: 0.9rem;">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+
+    <footer style="margin-top: 5rem;">
+        <div class="container" style="text-align: center; padding: 2rem 0;">
+            <p>&copy; 2026 Lumina Ecommerce. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
