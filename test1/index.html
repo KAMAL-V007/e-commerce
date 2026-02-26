@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brew & Bloom | Artisan Coffee</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=CaskaydianNoto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"> -->
+  <link rel="stylesheet">
 </head>
 <body>
 
@@ -13,18 +12,15 @@
     <div class="container">
       <nav>
         <a href="index.html" class="logo">Brew & Bloom</a>
-        
         <div class="menu-toggle">
           <span>&#9776;</span>
         </div>
-
         <ul class="nav-links">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="shop.html">Shop</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="auth.html" id="auth-link">Login</a></li>
         </ul>
-
         <div class="nav-icons">
           <a href="cart.html" class="cart-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
@@ -44,12 +40,11 @@
       <a href="about.html" class="btn btn-secondary">Our Story</a>
     </div>
   </section>
-
   <!-- Featured Products -->
   <section class="featured">
     <div class="container">
       <h2 class="section-title">Featured Roasts</h2>
-      <div class="products-grid" data-limit="3">
+      <div class="products-grid" data-limit="4">
         <!-- Products will be injected here by app.js -->
       </div>
       <div style="text-align: center; margin-top: 3rem;">
@@ -57,25 +52,23 @@
       </div>
     </div>
   </section>
-
-  <!-- Testimonials / Extra -->
-  <section style="background-color: var(--secondary-color); color: white;">
-    <div class="container" style="text-align: center;">
-      <h2 class="section-title" style="color: white;">What Our Customers Say</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-        <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px;">
-          <p>"The best Ethiopian Yirgacheffe I've ever tasted. Floral and bright!"</p>
-          <h4 style="margin-top: 1rem; color: var(--accent-color);">- Sarah J.</h4>
-        </div>
-        <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px;">
-          <p>"Fast shipping and incredible aroma right out of the bag."</p>
-          <h4 style="margin-top: 1rem; color: var(--accent-color);">- Mike T.</h4>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- <!-- Testimonials / Extra --> 
+  <!-- <section style="background-color: var(--secondary-color); color: white;"> -->
+  <!--   <div class="container" style="text-align: center;"> -->
+  <!--     <h2 class="section-title" style="color: white;">What Our Customers Say</h2> -->
+  <!--     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;"> -->
+  <!--       <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px;"> -->
+  <!--         <p>"The best Ethiopian Yirgacheffe I've ever tasted. Floral and bright!"</p> -->
+  <!--         <h4 style="margin-top: 1rem; color: var(--accent-color);">- Chandan.K </h4> -->
+  <!--       </div> -->
+  <!--       <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px;"> -->
+  <!--         <p>"Fast shipping and incredible aroma right out of the bag."</p> -->
+  <!--         <h4 style="margin-top: 1rem; color: var(--accent-color);">- Mithun <h4> -->
+  <!--       </div> -->
+  <!--     </div> -->
+  <!--   </div> -->
+  <!-- </section> -->
+  <!-- <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -83,14 +76,14 @@
           <h3>Brew & Bloom</h3>
           <p>Crafting moments of joy, one cup at a time.</p>
         </div>
-        <div class="footer-col">
-          <h3>Shop</h3>
-          <ul>
-            <li><a href="shop.html">All Coffee</a></li>
-            <li><a href="shop.html">Subscriptions</a></li>
-            <li><a href="shop.html">Equipment</a></li>
-          </ul>
-        </div>
+        <!-- <div class="footer-col"> -->
+        <!--   <!-- <h3>Shop</h3> -->
+        <!--   <ul> -->
+        <!--     <!-- <li><a href="shop.html">All Coffee</a></li> -->
+        <!--     <!-- <li><a href="shop.html">Subscriptions</a></li> --> 
+        <!--     <!-- <li><a href="shop.html">Equipment</a></li> --> 
+        <!--   </ul> -->
+        <!-- </div> -->
         <div class="footer-col">
           <h3>Support</h3>
           <ul>
@@ -102,7 +95,7 @@
         <div class="footer-col">
           <h3>Stay Connected</h3>
           <p>Subscribe for updates and offers.</p>
-          <input type="email" placeholder="Email Address" style="padding: 0.5rem; width: 100%; margin-top: 0.5rem;">
+          <input type="email" placeholder="Enter Email Address..." style="padding: 0.5rem; width: 100%; margin-top: 0.5rem;">
         </div>
       </div>
       <div class="copyright">

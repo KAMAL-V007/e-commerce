@@ -2,9 +2,10 @@ const products = [
   {
     id: 1,
     name: "Ethiopian Yirgacheffe",
-    price: 18.00,
+    price: 18.90,
     category: "Light Roast",
-    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+    // image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+    image: "assets/coffee-product-1.jpg?auto=format&fit=crop&w=700&q=70",
     description: "A bright, floral coffee with notes of jasmine and lemon. Grown in the high altitudes of Ethiopia, this coffee is perfect for pour-over brewing."
   },
   {
@@ -12,7 +13,7 @@ const products = [
     name: "Colombian Supremo",
     price: 16.50,
     category: "Medium Roast",
-    image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=200&q=10",
     description: "Balanced and smooth with a nutty sweetness and caramel finish. Our most popular daily drinker."
   },
   {
