@@ -169,11 +169,42 @@ function renderCheckout() {
   `;
 }
 
-function handleCheckout(event) {
+async function handleCheckout(event) {
   event.preventDefault();
-  alert('Thank you for your order! (This is a mock checkout)');
-  localStorage.removeItem(CART_KEY); // Clear cart
-  window.location.href = 'index.html';
+  
+  const cart = getCart();
+  const user = JSON.parse(localStorage.getItem(USER_KEY));
+  
+  const orderData = {
+    user: user,
+    items: cart,
+    total: cart.reduce((sum, item) => {
+      const product = products.find(p => p.id === item.id);
+      return sum + (product ? product.price * item.quantity : 0);
+    }, 0)
+  };
+
+  try {
+    const response = await fetch('http://localhost:3000/api/checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(orderData)
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      alert(data.message || 'Thank you for your order!');
+      localStorage.removeItem(CART_KEY); // Clear cart
+      window.location.href = 'index.html';
+    } else {
+      throw new Error('Failed to process order');
+    }
+  } catch (error) {
+    console.error('Checkout error:', error);
+    alert('Failed to place order. Please try again later.');
+  }
 }
 
 // Render Single Product Detail
@@ -329,16 +360,56 @@ function checkLoginStatus() {
 
 // --- 5. Initialization ---
 
+async function loadProducts() {
+  const grid = document.querySelector('.products-grid');
+  const detailContainer = document.getElementById('product-detail');
+  const cartTable = document.getElementById('cart-table');
+  const checkoutSummary = document.getElementById('checkout-summary');
+
+  try {
+    // Show a loading state if we're on a page that needs products
+    if (grid) grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Loading products...</p>';
+    
+    const response = await fetch('http://localhost:3000/api/products');
+    if (!response.ok) throw new Error('Failed to fetch products');
+    
+    // Update the global products variable (defined in data.js)
+    const fetchedProducts = await response.json();
+    
+    // Ensure prices are numbers (pg might return them as strings)
+    products.length = 0; // Clear existing items
+    fetchedProducts.forEach(p => {
+      products.push({
+        ...p,
+        price: parseFloat(p.price)
+      });
+    });
+
+    // Execute Page-Specific Logic after data is loaded
+    renderProductGrid();
+    renderProductDetail();
+    renderCartPage();
+    renderCheckout();
+    
+  } catch (error) {
+    console.error('Error loading products:', error);
+    if (grid) grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: red;">Failed to load products. Using offline data.</p>';
+    
+    // Fallback to existing products (if data.js loaded successfully)
+    renderProductGrid();
+    renderProductDetail();
+    renderCartPage();
+    renderCheckout();
+  }
+}
+
 // Execute Global Logic
 updateCartBadge();
 setupMobileMenu();
 checkLoginStatus();
 
-// Execute Page-Specific Logic (if elements exist)
-renderProductGrid();
-renderProductDetail();
-renderCartPage();
-renderCheckout();
+// Start loading products
+loadProducts();
 
 // Auth Listener
 const loginForm = document.getElementById('login-form');
