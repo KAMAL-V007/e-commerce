@@ -19,7 +19,7 @@ BACKEND_PID=$!
 
 # 3. Start Frontend Server
 echo " Starting Frontend (Port 8080)..."
-cd ../fontend
+cd ../frontend
 # Use 'npx serve' if available, otherwise use Python's built-in server
 if npx --version &>/dev/null; then
   npx serve -l 8080 . &

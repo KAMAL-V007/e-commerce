@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | Brew & Bloom</title>
+  <title>Login & Register | Brew & Bloom</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -14,7 +13,6 @@
     <div class="container">
       <nav>
         <a href="index.html" class="logo">Brew & Bloom</a>
-        <div class="menu-toggle"><span>&#9776;</span></div>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop</a></li>
@@ -33,63 +31,68 @@
 
   <section>
     <div class="auth-container">
-      <h2 style="margin-bottom: 2rem; color: var(--primary-color);">Welcome Back</h2>
-      <form id="login-form">
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" class="form-control" placeholder="you@example.com" required>
+      <!-- Login Section -->
+      <div id="login-section">
+        <h2 style="margin-bottom: 2rem;">Welcome Back</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn" style="width: 100%;">Sign In</button>
+        </form>
+        <div class="form-footer">
+          <p>Don't have an account? <a href="#" id="show-register">Create one</a></p>
         </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+      </div>
+
+      <!-- Register Section (Hidden by default) -->
+      <div id="register-section" style="display: none;">
+        <h2 style="margin-bottom: 2rem;">Create Account</h2>
+        <form id="register-form">
+          <div class="form-group">
+            <label for="reg-name">Full Name</label>
+            <input type="text" id="reg-name" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-email">Email Address</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-password">Password</label>
+            <input type="password" id="reg-password" class="form-control" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn" style="width: 100%;">Register</button>
+        </form>
+        <div class="form-footer">
+          <p>Already have an account? <a href="#" id="show-login">Login here</a></p>
         </div>
-        <button type="submit" class="btn" style="width: 100%;">Sign In</button>
-      </form>
-      
-      <div class="form-footer">
-        <p>Don't have an account? <a href="#">Create one</a></p>
-        <p><a href="#">Forgot password?</a></p>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h3>Brew & Bloom</h3>
-          <p>Crafting moments of joy, one cup at a time.</p>
-        </div>
-        <div class="footer-col">
-          <h3>Shop</h3>
-          <ul>
-            <li><a href="shop.html">All Coffee</a></li>
-            <li><a href="shop.html">Subscriptions</a></li>
-            <li><a href="shop.html">Equipment</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Support</h3>
-          <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Shipping</a></li>
-            <li><a href="#">Returns</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Stay Connected</h3>
-          <p>Subscribe for updates and offers.</p>
-          <input type="email" placeholder="Email Address" style="padding: 0.5rem; width: 100%; margin-top: 0.5rem;">
-        </div>
-      </div>
-      <div class="copyright">
-        &copy; 2026 Brew & Bloom. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <!-- Script to toggle forms -->
+  <script>
+    const loginSec = document.getElementById('login-section');
+    const registerSec = document.getElementById('register-section');
+    
+    document.getElementById('show-register').onclick = (e) => {
+      e.preventDefault();
+      loginSec.style.display = 'none';
+      registerSec.style.display = 'block';
+    };
+    
+    document.getElementById('show-login').onclick = (e) => {
+      e.preventDefault();
+      registerSec.style.display = 'none';
+      loginSec.style.display = 'block';
+    };
+  </script>
+  
+  <script type="module" src="app.js"></script>
 </body>
 </html>
