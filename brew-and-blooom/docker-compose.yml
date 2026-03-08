@@ -44,12 +44,33 @@ services:
     networks:
       - coffee-net
     ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - "8081:80"
+      # - "80:80"
+      # 443:443
+    #     volumes:                                                                                                                          │
+    # │ - /etc/letsencrypt:/etc/letsencrypt:ro
     depends_on:
       - backend
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    networks:
+      - coffee-net
+    ports:
+      - "9000:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    networks:
+      - coffee-net
+    ports:
+      - "4000:3000"
+    depends_on:
+      - prometheus
 
 networks:
   coffee-net:
