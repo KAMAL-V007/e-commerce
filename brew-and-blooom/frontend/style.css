@@ -32,7 +32,8 @@
   ========================================
 */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--font-body); background-color: var(--bg); color: var(--text); line-height: 1.6; }
+html { overflow-x: hidden; }
+body { font-family: var(--font-body); background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--primary); margin-bottom: 1rem; }
 a { text-decoration: none; color: inherit; transition: var(--transition); }
 ul { list-style: none; }
@@ -80,6 +81,8 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 .cart-icon { position: relative; }
 .cart-count { position: absolute; top: -8px; right: -10px; background: var(--highlight); color: var(--white); font-size: 0.75rem; padding: 2px 6px; border-radius: 50%; }
 .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+.menu-toggle.open span::before { content: '\2715'; }
+.menu-toggle.open span { font-size: 0; }
 
 /* 
   ========================================
@@ -107,7 +110,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 
 .featured-section { padding: 6rem 0; background: white; }
 .section-header { text-align: center; margin-bottom: 4rem; }
-.section-header h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.section-header h2 { font-size: clamp(1.75rem, 5vw, 2.5rem); margin-bottom: 0.5rem; }
 .section-header p { color: #888; }
 
 .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
@@ -187,7 +190,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 }
 .shop-page { background-color: #fdfbf7; }
 .shop-header { margin-top: 4rem; margin-bottom: 4rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 2rem; }
-.shop-title-area .page-title { font-size: 4rem; margin-bottom: 0; }
+.shop-title-area .page-title { font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 0; }
 
 .filter-pills { display: flex; gap: 10px; flex-wrap: wrap; }
 .filter-pill { padding: 10px 25px; border-radius: 50px; border: 1px solid #ddd; background: white; color: var(--text); cursor: pointer; font-weight: 600; transition: var(--transition); }
@@ -265,7 +268,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 */
 .cart-page { background-color: #fcfaf8; }
 .cart-header-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; padding-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
-.page-title { margin-bottom: 0; font-size: 3rem; }
+.page-title { margin-bottom: 0; font-size: clamp(2rem, 6vw, 3rem); }
 .continue-shopping { color: var(--secondary); font-weight: 600; font-size: 0.9rem; }
 .continue-shopping:hover { color: var(--highlight); text-decoration: underline; }
 
@@ -370,7 +373,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 /* Mission & Values */
 .mission-section { padding: 8rem 0; background: white; }
 .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-.section-heading { font-size: 3rem; margin-bottom: 2rem; }
+.section-heading { font-size: clamp(2rem, 6vw, 3rem); margin-bottom: 2rem; }
 .section-heading.centered { text-align: center; }
 .lead { font-size: 1.4rem; color: var(--primary); font-weight: 700; margin-bottom: 1.5rem; line-height: 1.4; }
 .centered-p { text-align: center; max-width: 700px; margin: 0 auto 4rem; font-size: 1.1rem; color: #666; }
@@ -403,7 +406,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 /* About CTA */
 .about-cta { padding: 6rem 0; background: white; }
 .cta-card { background: var(--secondary); color: white; padding: 5rem; border-radius: 30px; text-align: center; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); }
-.cta-card h2 { font-size: 3.5rem; color: white; margin-bottom: 1rem; }
+.cta-card h2 { font-size: clamp(2rem, 7vw, 3.5rem); color: white; margin-bottom: 1rem; }
 .cta-card p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2.5rem; }
 .btn-white { background: white; color: var(--primary); }
 .btn-white:hover { background: var(--highlight); color: white; }
@@ -453,7 +456,11 @@ footer { background: var(--primary); color: var(--accent); padding: 4rem 0 2rem;
 }
 
 @media (max-width: 600px) {
-  .whatsapp-float { width: 54px; height: 54px; bottom: 18px; right: 18px; }
+  .whatsapp-float {
+    width: 54px; height: 54px;
+    bottom: max(18px, env(safe-area-inset-bottom));
+    right: max(18px, env(safe-area-inset-right));
+  }
   .whatsapp-float svg { width: 30px; height: 30px; }
 }
 
@@ -476,8 +483,69 @@ footer { background: var(--primary); color: var(--accent); padding: 4rem 0 2rem;
 }
 
 @media (max-width: 600px) {
+    /* ===== Layout grids: collapse to single column ===== */
     .specs-grid { grid-template-columns: 1fr; }
+    .mission-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .values-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; gap: 2.5rem; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
     .action-row { flex-direction: column; }
     .modern-qty-selector { width: 100%; justify-content: space-between; }
     .btn-hero { width: 100%; }
+
+    /* ===== Header & mobile nav ===== */
+    header { padding: 0.75rem 0; }
+    .logo { font-size: 1.4rem; }
+    .menu-toggle { display: block; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--white);
+        padding: 1rem var(--gutter);
+        box-shadow: var(--shadow);
+        gap: 1rem;
+        z-index: 999;
+    }
+    .nav-links.open { display: flex; }
+    .nav-icons { gap: 1rem; }
+
+    /* ===== Section spacing reductions ===== */
+    .hero-simple { padding: 4rem 0; }
+    .featured-section { padding: 3.5rem 0; }
+    .newsletter-simple { padding: 3.5rem 0; }
+    .mission-section { padding: 4rem 0; }
+    .quality-focus { padding: 4rem 0; }
+    .related-products-modern { padding: 4rem 0; }
+    .product-specs-section { padding: 4rem 0; }
+    .product-detail-wrapper { padding: 2rem 0 4rem; }
+    .about-cta { padding: 4rem 0; }
+    .shop-header { margin-top: 2rem; margin-bottom: 2rem; gap: 1.5rem; }
+
+    /* ===== Card padding reductions ===== */
+    .cta-card { padding: 2.5rem 1.5rem; }
+    .newsletter-box { padding: 2.5rem 1.5rem; }
+    .checkout-section { padding: 1.5rem; }
+    .auth-card-simple { padding: 2rem 1.5rem; }
+    .modern-summary-card { padding: 1.5rem; }
+    .spec-item { padding: 1.25rem; }
+    .value-card { padding: 1.5rem; }
+    .order-summary-card { padding: 1.5rem; }
+
+    /* ===== Cart page: stack items vertically ===== */
+    .cart-header-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .cart-item-card { flex-direction: column; align-items: stretch; gap: 1rem; padding: 1.25rem; }
+    .cart-item-image { width: 100%; height: 160px; }
+    .cart-item-controls { flex-wrap: wrap; gap: 1rem; }
+    .cart-item-price-info { text-align: left; }
+
+    /* ===== About page ===== */
+    .sleek-about-hero { height: 70vh; }
+    .image-stack { height: 400px; }
+
+    /* ===== Checkout ===== */
+    .section-header { flex-wrap: wrap; }
+    .secure-footer { flex-wrap: wrap; gap: 1rem; }
 }

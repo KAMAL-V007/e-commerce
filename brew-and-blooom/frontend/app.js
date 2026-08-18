@@ -57,6 +57,22 @@ async function init() {
         }
     };
 
+    // Mobile Hamburger Menu
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuToggle && navLinks) {
+      menuToggle.onclick = () => {
+        navLinks.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+      };
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.onclick = () => {
+          navLinks.classList.remove('open');
+          menuToggle.classList.remove('open');
+        };
+      });
+    }
+
     // Filter listener (Modern & Standard)
     const filterElements = document.querySelectorAll('.filter-pill, .filter-btn');
     filterElements.forEach(btn => {
